@@ -1,34 +1,19 @@
+//引入通用工具库
 //import _ from 'lodash';
-//import printMe from './js/print.js';
 
 //引入自定义JS库
 import './js/global.js';
+import './js/navbar.js';
+import './js/drawer.js';
+import './js/footer.js';
+import './js/workspace.js';
 
 //引入CSS库
 import './css/index.css';
 
-//引入Alpinejs
+//引入Alpinejs,并使之生效
 import Alpine from 'alpinejs';
  
 window.Alpine = Alpine;
  
 Alpine.start();
-
-//function component() {
-//    const element = document.createElement('div');
-//    const btn = document.createElement('button');
-//  
-//    //js库引入 lodash现在使用import引入
-//    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-//    //引入css
-//    element.classList.add('hello');
-//
-//    btn.innerHTML = 'Click me and check the console!';
-//    btn.onclick = printMe;
-//
-//    element.appendChild(btn);
-//  
-//    return element;
-//}
-//  
-//document.body.appendChild(component());

@@ -2,4 +2,4 @@
 
 study webpack with tailwindcss and alpinejs
 
-20240625: update README
+20240625: update README, gitignore

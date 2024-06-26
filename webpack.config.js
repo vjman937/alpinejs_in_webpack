@@ -12,7 +12,7 @@ module.exports = {
           title: 'Development',
           template: './src/index.html',
         }),
-        //tailwindcss引入博客教学
+        //tailwindcss引入
         new MiniCssExtractPlugin({
             filename: 'css/[name].css',
         }),

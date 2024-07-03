@@ -66,7 +66,8 @@
             <!-- <div x-data="{workspace : globals_test()}"
                  x-html="workspace">
             </div> -->
-            <template x-route="/" template="html/message_parse.html"></template>
+            <template x-route="/message" template="../src/html/message_parse.html"></template>
+            <template x-route="/string" template="../src/html/string_handle.html"></template>
             <template x-route.notfound>
               <div>
                 Error 404 not found
@@ -114,7 +115,7 @@
               x-for="item in drawer_getWorkspace"
               :key="item.id"
             >
-              <button @click="$router.push(item.link)" x-text="item.label"></button>
+              <a x-link x-bind:href="$router.push(item.link)" x-text="item.label"></a>
             </template>
           </li>
         </ul>

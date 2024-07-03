@@ -15,7 +15,12 @@ import "./css/index.css";
 
 //引入Alpinejs,并使之生效
 import Alpine from "alpinejs";
+//导入alpinejs-router库
+import router from "@shaun/alpinejs-router";
 
 window.Alpine = Alpine;
+
+//加载alpinejs插件
+Alpine.plugin(router);//加载alpinejs-router
 
 Alpine.start();

@@ -1,4 +1,4 @@
-//定义workspace组件用的所有变量和函数
+//定义workspace组件用的所有变量和函数（页面主体部分，选择加载，用户工作空间）
 document.addEventListener("alpine:init", () => {
   Alpine.data("workspace", function () {
     return {

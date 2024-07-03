@@ -6,7 +6,7 @@
     <title>列控老伙计 V3.0</title>
   </head>
   <body>
-    <div x-data="globals" class="flex flex-row drawer h-screen">
+    <div x-data="globals" x-init="$router.config({ mode: 'web' })" class="flex flex-row drawer h-screen">
       <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
       <!-- Drawer主界面 -->
       <div class="flex flex-col drawer-content w-full">
@@ -58,14 +58,20 @@
 
         <!-- 用户工作区（可根据功能要求而切换） -->
         <div x-data class="flex flex-grow">
-            <button class="btn btn-active btn-secondary">Button3</button>
+            <!-- <button class="btn btn-active btn-secondary">Button3</button> -->
           <!-- <div x-text="globals_http_get('http://127.0.0.1:3000/');">用户工作区 建设中1</div> -->
-            <div x-data="{workspace : globals_http_get('http://127.0.0.1:3000/static/html/string_handle.html')}"
+            <!-- <div x-data="{workspace : globals_http_get('http://127.0.0.1:3000/static/html/string_handle.html')}"
                  x-html="workspace">
-            </div>
+            </div> -->
             <!-- <div x-data="{workspace : globals_test()}"
                  x-html="workspace">
             </div> -->
+            <template x-route="/message" template="./message_parse.html"></template>
+            <template x-route.notfound>
+              <div>
+                Error 404 not found
+              </div>
+            </template>
         </div>
 
         <!-- 页脚：状态显示区 -->
@@ -91,7 +97,7 @@
         </footer>
       </div>
 
-      <!-- Drawer侧边栏（功能切换） -->
+      <!-- drawer侧边栏（功能切换） -->
       <div class="drawer-side">
         <label
           for="drawer-toggle"
@@ -108,7 +114,7 @@
               x-for="item in drawer_getWorkspace"
               :key="item.id"
             >
-              <a x-text="item.label"></a>
+              <button @click="$router.push(item.link)" x-text="item.label"></button>
             </template>
           </li>
         </ul>

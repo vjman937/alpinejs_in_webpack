@@ -1,0 +1,64 @@
+<div class="flex w-full">
+    <div class="grid basis-1/4 flex-col flex-grow card bg-base-200 rounded-box place-items-center">
+        <div class="flex flex-col w-full border-opacity-50">
+            <div class="grid basis-1/3 card bg-base-300 rounded-box place-items-center">
+                <select class="select select-bordered w-full max-w-xs">
+                    <option disabled selected>项目名称</option>
+                    <option>GA</option>
+                    <option>西安8</option>
+                </select>
+                <select class="select select-bordered w-full max-w-xs">
+                    <option disabled selected>项目版本</option>
+                    <option>V1.3.13.0_020</option>
+                    <option>V1.3.14.0_010</option>
+                </select>
+                <select class="select select-bordered w-full max-w-xs">
+                    <option disabled selected>报文类型</option>
+                    <option>ATP-ZC</option>
+                    <option>ATP-TOD</option>
+                </select>
+            </div>
+            <div class="divider"></div>
+            <div class="grid basis-1/3 card bg-base-300 rounded-box place-items-center">
+                <textarea class="textarea textarea-bordered" placeholder="请输入待解报文..."></textarea>
+            </div>
+            <div class="divider"></div>
+            <div class="grid basis-1/3 card bg-base-300 rounded-box place-items-center">
+                <textarea class="textarea textarea-bordered" placeholder="查询语句辅助"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider divider-horizontal">1</div>
+
+    <div class="grid basis-1/2 flex-col flex-grow card bg-base-200 rounded-box place-items-center">
+        <div class="flex flex-col w-full border-opacity-50">
+            <div class="flex w-full">
+                <div class="grid basis-1/3 flex-col flex-grow card bg-base-200 rounded-box place-items-center">
+                    <input type="text" placeholder="SID" class="input input-bordered input-primary w-full max-w-xs" />
+                </div>
+                <div class="grid basis-1/3 flex-col flex-grow card bg-base-200 rounded-box place-items-center">
+                    <input type="text" placeholder="DID" class="input input-bordered input-secondary w-full max-w-xs" />
+                </div>
+                <div class="grid basis-1/3 flex-col flex-grow card bg-base-200 rounded-box place-items-center">
+                    <input type="text" placeholder="CYCLE" class="input input-bordered input-info w-full max-w-xs" />
+                </div>
+            </div>
+            <div class="flex w-full">
+                <div class="grid basis-1/2 flex-col flex-grow card bg-base-200 rounded-box place-items-center">
+                    <input type="text" placeholder="展开显示" class="input input-bordered input-primary w-full max-w-xs" />
+                </div>
+                <div class="grid basis-1/2 flex-col flex-grow card bg-base-200 rounded-box place-items-center">
+                <input type="text" placeholder="折叠显示" class="input input-bordered input-secondary w-full max-w-xs" />
+                </div>
+            </div>
+            <div class="flex w-full flex-grow">
+                <textarea class="textarea flex-grow textarea-bordered" placeholder="报文解析结果"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider divider-horizontal">2</div>
+
+    <div class="grid basis-1/4 flex-col flex-grow card bg-base-200 rounded-box place-items-center">（卡片式）历史记录、清空、导入/导出、指定删除</div>
+</div>

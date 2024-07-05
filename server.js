@@ -1,19 +1,20 @@
 'use strict';
 
-const cors = require('cors');
+//const cors = require('cors');
 const express = require('express');
 const app = express();
 const port = 3000;
 
 //允许跨域
-app.use(cors({origin: '*'}));
+//app.use(cors({origin: '*'}));
 
 //创建虚拟路径前缀
-app.use('/static', express.static('dist'));
+app.use('/', express.static('lklhj'));
 
 app.get('/', (req, res) => {
   //res.send('hello lklhj!');
-  res.sendFile(__dirname + "/dist/" + "index.html");
+  //console.log(__dirname);
+  res.sendFile(__dirname + "/lklhj/html/" +"index.html");
 });
 
 app.listen(port, () => {

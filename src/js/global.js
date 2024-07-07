@@ -1,3 +1,4 @@
+import { upperCase } from "lodash";
 import pub from "./pub.js"
 
 //定义全局变量和函数
@@ -31,6 +32,11 @@ document.addEventListener("alpine:init", () => {
            //console.log(str);
            //return str;
            pub.test();
+        },
+
+        string_UpperCase : function(str='') {
+          str = "hello vjman string";
+          console.log(upperCase(str));
         }
       };
     });

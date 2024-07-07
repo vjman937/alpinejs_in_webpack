@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: "development",
@@ -17,34 +17,14 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
     }),
-    //文件拷贝插件，后续把本地路径改为URL路径
-    //该插件建议最后执行，防止被前面的插件影响
-    new CopyPlugin({
+    //文件拷贝插件
+    new CopyWebpackPlugin({
       patterns: [
         {
           from: path.resolve(__dirname, "src", "html"),
-          to: path.resolve(__dirname, "lklhj", "html"),
+          to: path.resolve(__dirname, "dist", "html"),
           toType: 'dir'
         },
-        {
-          from: path.resolve(__dirname, "src", "weblogic"),
-          to: path.resolve(__dirname, "lklhj", "weblogic"),
-          toType: 'dir'
-        },
-        {
-          from: path.resolve(__dirname, "dist", "js"),
-          to: path.resolve(__dirname, "lklhj", "js"),
-          toType: 'dir'
-        },
-        {
-          from: path.resolve(__dirname, "dist", "css"),
-          to: path.resolve(__dirname, "lklhj", "css"),
-          toType: 'dir'
-        },
-        {
-          from: path.resolve(__dirname, "dist", "index.html"),
-          to: path.resolve(__dirname, "lklhj/html", "index.html"),
-        }
       ],
       options: {
         concurrency: 100,

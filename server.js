@@ -9,12 +9,12 @@ const port = 3000;
 //app.use(cors({origin: '*'}));
 
 //创建虚拟路径前缀
-app.use('/', express.static('lklhj'));
+app.use('/', express.static('dist'));
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
   //res.send('hello lklhj!');
   //console.log(__dirname);
-  res.sendFile(__dirname + "/lklhj/html/" +"index.html");
+  res.sendFile(__dirname + "/dist/" + "index.html");
 });
 
 app.listen(port, () => {

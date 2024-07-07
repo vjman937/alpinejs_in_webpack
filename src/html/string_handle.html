@@ -3,7 +3,7 @@
     <div class="flex flex-row gap-8">
       <textarea id="str_input" rows="12" cols="80" class="text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="请在此处输入待处理字符串"></textarea>
       <button class="bg-red-400  w-20 h-20">选择字符处理功能</button>
-      <button class="btn btn-active btn-primary">Button3</button>
+      <button @click="string_UpperCase()" class="btn btn-active btn-primary">Button3</button>
     </div>
     <div class="flex flex-row gap-8">
       <textarea id="result_output" rows="12" cols="80" class="text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="处理结果输出在此处"></textarea>

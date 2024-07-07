@@ -59,18 +59,11 @@
         <!-- 用户工作区（可根据功能要求而切换） -->
         <div x-data class="flex flex-grow">
             <!-- <button class="btn btn-active btn-secondary">Button3</button> -->
-          <!-- <div x-text="globals_http_get('http://127.0.0.1:3000/');">用户工作区 建设中1</div> -->
-            <!-- <div x-data="{workspace : globals_http_get('http://127.0.0.1:3000/static/html/string_handle.html')}"
-                 x-html="workspace">
-            </div> -->
-            <!-- <div x-data="{workspace : globals_test()}"
-                 x-html="workspace">
-            </div> -->
-            <template x-route="/" template="static/html/message_parse.html"></template>
-            <template x-route="/string" template="static/html/string_handle.html"></template>
+            <template x-route="/message" template="/html/message_parse.html"></template>
+            <template x-route="/string" template="/html/string_handle.html"></template>
             <template x-route.notfound>
               <div>
-                Error 404 not found
+                Error 404 Not Found !
               </div>
             </template>
         </div>

@@ -25,6 +25,10 @@ module.exports = {
           to: path.resolve(__dirname, "dist", "html"),
           toType: 'dir'
         },
+        {
+          from: path.resolve(__dirname, "src/pic", "favicon.ico"),
+          to: path.resolve(__dirname, "dist", "favicon.ico")
+        },
       ],
       options: {
         concurrency: 100,

@@ -1,4 +1,3 @@
-import { upperCase } from "lodash";
 import pub from "./pub.js"
 
 //定义全局变量和函数
@@ -20,24 +19,19 @@ document.addEventListener("alpine:init", () => {
         //     return data;
         // },
 
-        globals_http_get : async function(url) {
+        glb_http_get : async function(url) {
           let data = pub.http_get(url);
           //console.log(data);
           console.log("111");
           return data;
         },
 
-        globals_test : function() {
+        glb_test : function() {
            //let str = "<h1>hello guys 1</h1>";
            //console.log(str);
            //return str;
            pub.test();
         },
-
-        string_UpperCase : function(str='') {
-          str = "hello vjman string";
-          console.log(upperCase(str));
-        }
       };
     });
   });

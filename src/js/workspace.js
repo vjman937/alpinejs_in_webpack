@@ -19,26 +19,6 @@ document.addEventListener("alpine:init", () => {
         //{'id': 3, 'label': '数据查询', 'url': undefined             },
         //{'id': 4, 'label': '日志处理', 'url': undefined             },
       ],
-      //已经加载的工作空间
-      loadedWorkspaces: {},
-      //当前功能ID
-      currentId: 1,
-      //默认工作区ID
-      defaultId: 1,
-
-      //定义测试页面
-      first: "<h1>First Page</h1>",
-      second: "<h1>Second Page</h1>",
-
-      lklhj_init() {
-        if (window.location.pathname.includes("first")) {
-          return this.first;
-        } else if (window.location.pathname.includes("second")) {
-          return this.second;
-        } else {
-          return this.first;
-        }
-      },
     };
   });
 });

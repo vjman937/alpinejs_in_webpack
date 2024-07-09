@@ -1,16 +1,21 @@
-<div class="flex flex-row gap-8">
-  <div class="flex flex-col gap-8">
-    <div class="flex flex-row gap-8">
-      <textarea id="str_input" rows="12" cols="80" class="text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="请在此处输入待处理字符串"></textarea>
-      <button class="bg-red-400  w-20 h-20">选择字符处理功能</button>
-      <button @click="string_UpperCase()" class="btn btn-active btn-primary">Button3</button>
+<div x-data="string_handle" class="flex flex-row gap-8">
+  <div class="ml-20 flex flex-col gap-8">
+    <div class="mt-10 flex flex-row gap-8">
+      <textarea id="str_input" class="textarea textarea-bordered" rows="8" cols="80" placeholder="请在此处输入待处理字符串..."></textarea>
+      <select id="str_fc_select" class="select select-primary max-w-xs">
+        <option x-bind:value="false" disabled selected>请选择字符处理方式</option>
+        <template x-show="false" x-for="item in sh_getStringFunctions" :key="item.id" >
+          <option x-bind:value=item.func x-text="item.label"></option>
+        </template>
+      </select>
     </div>
-    <div class="flex flex-row gap-8">
-      <textarea id="result_output" rows="12" cols="80" class="text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="处理结果输出在此处"></textarea>
-      <button class="bg-red-400 w-20 h-20">开始处理</button>
+    <div class="mt-10 flex flex-row gap-8">
+      <textarea id="result_output" class="textarea textarea-bordered" rows="15" cols="80" placeholder="处理结果输出在此处"></textarea>
+      <!-- <button x-data @click="eval(sh_getSelectFuncById('str_fc_select'))" class="btn btn-outline btn-warning btn-lg">开始处理</button> -->
+      <button x-data @click="sh_handle('str_input', 'str_fc_select', 'result_output')" class="btn btn-outline btn-warning btn-lg">开始处理</button>
     </div>
   </div>
-  <div>
-    <textarea id="function_introduce" rows="27" cols="50" class="text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="此处是所有功能的说明"></textarea>
+  <div class="ml-16 mt-10">
+    <textarea id="function_introduce" rows="38" cols="50" class="text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="此处是所有功能的说明"></textarea>
   </div>
 </div>

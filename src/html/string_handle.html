@@ -3,14 +3,14 @@
     <div class="mt-10 flex flex-row gap-8">
       <textarea id="str_input" class="textarea textarea-bordered" rows="8" cols="80" placeholder="请在此处输入待处理字符串..."></textarea>
       <select id="str_fc_select" class="select select-primary max-w-xs">
-        <option x-bind:value="false" disabled selected>请选择字符处理方式</option>
+        <option x-bind:value="'notSelect'" disabled selected>请选择字符处理方式</option>
         <template x-show="false" x-for="item in sh_getStringFunctions" :key="item.id" >
           <option x-bind:value=item.func x-text="item.label"></option>
         </template>
       </select>
     </div>
     <div class="mt-10 flex flex-row gap-8">
-      <textarea id="result_output" class="textarea textarea-bordered" rows="15" cols="80" placeholder="处理结果输出在此处"></textarea>
+      <textarea id="result_output" class="textarea textarea-bordered" rows="15" cols="80" placeholder="<-处理结果输出在此处"></textarea>
       <!-- <button x-data @click="eval(sh_getSelectFuncById('str_fc_select'))" class="btn btn-outline btn-warning btn-lg">开始处理</button> -->
       <button x-data @click="sh_handle('str_input', 'str_fc_select', 'result_output')" class="btn btn-outline btn-warning btn-lg">开始处理</button>
     </div>

@@ -34,7 +34,7 @@ document.addEventListener("alpine:init", () => {
         stringFunctions : [
           {
             id: 1,
-            label: "十六进制字符个数统计",
+            label: "十六进制字数统计",
             func: "sh_hex_count"
           },
           {
@@ -100,25 +100,29 @@ document.addEventListener("alpine:init", () => {
         /**< ############################# 内部调用函数 ################################ */
         //十六进制字符个数统计
         sh_hex_count : function(str) {
-          //除掉空格等无效字符
-          let result = "";
-          let originLength = str.length;
-          let regex = /[^0-9a-fA-F]/g;
-          let newStr = str.replace(regex, "");
-          //计算16进制字符个数
-          let newLength = newStr.length;
-          //打印16进制字节个数(保留1位小数)
-          let byteLength = _.floor(newLength / 2, 1);
-          result += "统计结果: \n";
-          result += _.toString(byteLength) + " 个字节\n";
-          result += _.toString(newLength) + " 个字符\n";
-          result += "注意: '6'为1个字符, 0.5个字节\n";
-          result += "'66'为2个字符, 1个字节";
-          console.log(result);
-          //存在非16进制字符则告警
-          if (originLength != newLength) {
-            alert("老伙计提醒: \n字符串中存在非16进制字符");
-          }
+          //str = _.trim(str, " ',~|#^*()-_+=[]{}.?\r\n");
+          //let result = "";
+          //
+          //let regex = /[^0-9a-fA-F]/g;
+          //let newStr = str.replace(regex, "");
+          //let newLength = newStr.length;
+          //if (0 < newLength)
+          //{
+          //  //打印16进制字节个数(保留1位小数)
+          //  let byteLength = _.floor(newLength / 2, 1);
+          //  result += "统计结果: \n";
+          //  result += _.toString(byteLength) + " 个字节\n";
+          //  result += _.toString(newLength) + " 个字符\n\n";
+          //  result += "举例说明:\n";
+          //  result += "'6'为1个字符, 0.5个字节\n";
+          //  result += "'66'为2个字符, 1个字节";
+          //  console.log(result);
+          //} else {
+          //  alert("老伙计提醒: \n字符串中无16进制相关字符");
+          //}
+          //
+          //return result;
+          console.log(str);        
         },
 
         //全部转大写

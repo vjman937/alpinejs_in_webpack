@@ -11,11 +11,10 @@
     </div>
     <div class="mt-10 flex flex-row gap-8">
       <textarea id="result_output" class="textarea textarea-bordered" rows="15" cols="80" placeholder="<-处理结果输出在此处"></textarea>
-      <!-- <button x-data @click="eval(sh_getSelectFuncById('str_fc_select'))" class="btn btn-outline btn-warning btn-lg">开始处理</button> -->
-      <button x-data @click="sh_handle('str_input', 'str_fc_select', 'result_output')" class="btn btn-outline btn-warning btn-lg">开始处理</button>
+      <div class="flex flex-col mt-10">
+        <button x-data @click="sh_handle()" class="mt-0 btn btn-outline btn-success btn-lg">开始处理</button>
+        <button x-data @click="sh_reset()" class="mt-10 btn btn-outline btn-warning btn-lg">重置</button>
+      </div>
     </div>
-  </div>
-  <div class="ml-16 mt-10">
-    <textarea id="function_introduce" rows="38" cols="50" class="text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="此处是所有功能的说明"></textarea>
   </div>
 </div>

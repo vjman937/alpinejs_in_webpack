@@ -64,6 +64,21 @@ document.addEventListener("alpine:init", () => {
             func: "sh_ascii2hex"
           },
           {
+            id: 6,
+            label: "16进制转10进制(批量转换)",
+            func: "sh_hex2dec"
+          },
+          {
+            id: 7,
+            label: "10进制转16进制(批量转换)",
+            func: "sh_dec2hex"
+          },
+          {
+            id: 8,
+            label: "10进制转16进制(方便转存)",
+            func: "sh_dec2hex_pure"
+          },
+          {
             id: 10,
             label: "全部转大写",
             func: "sh_toUpper"
@@ -256,11 +271,12 @@ document.addEventListener("alpine:init", () => {
           str = this.sh_transToOriginString(str);
 
           let arr = _.split(str, '');
+          //删除数组中的空元素
+          arr = _.compact(arr);
 
           for (let i = 0; i < arr.length; i++) {
             arr[i] = arr[i].charCodeAt(0);
             arr[i] = arr[i].toString(16);
-            console.log(arr[i]);
             if (arr.length - 1 === i) {
               arr[i] = "0x" + _.toString(arr[i]);
             } else {
@@ -271,6 +287,80 @@ document.addEventListener("alpine:init", () => {
           _.map(arr, function(value) {
             result += value;
           });
+
+          return result;
+        },
+
+        //16进制转10进制(批量转换)
+        sh_hex2dec : function(str) {
+          let result = "";
+          str = this.sh_transToOriginString(str);
+
+          //允许英文逗号或空格分隔
+          let arr = _.split(str, /[ ,，\n]/g);
+          //删除数组中的空元素
+          arr = _.compact(arr);
+
+          //将不带0x前缀的16进制字符串补上该前缀
+          for (let i = 0; i < arr.length; i++) {
+            let hasPrefix = arr[i].match(/^0[xX]{1}/g);
+            if (true === _.isEmpty(hasPrefix)) {
+              arr[i] = "0x" + arr[i];
+            }
+          }
+
+          for (let i = 0; i < arr.length; i++) {
+            let curDec = _.toNumber(arr[i]).toString(10);
+            if (arr.length - 1 === i) {
+              result += arr[i] + " -> " + curDec;
+            } else {
+              result += arr[i] + " -> " + curDec + "\n";
+            }
+          }
+
+          return result;
+        },
+
+        //10进制转16进制(批量转换)
+        sh_dec2hex : function(str) {
+          let result = "";
+          str = this.sh_transToOriginString(str);
+
+          //允许英文逗号或空格分隔
+          let arr = _.split(str, /[ ,，\n]/g);
+          //删除数组中的空元素
+          arr = _.compact(arr);
+
+          for (let i = 0; i < arr.length; i++) {
+            let curHex = _.toUpper(_.toNumber(arr[i]).toString(16));
+            if (arr.length - 1 === i) {
+              result += arr[i] + " -> 0x" + curHex;
+            } else {
+              result += arr[i] + " -> 0x" + curHex + "\n";
+            }
+          }
+
+          return result;
+        },
+
+        //10进制转16进制(方便转存)",
+        sh_dec2hex_pure : function(str) {
+          let result = "";
+          str = this.sh_transToOriginString(str);
+
+          //允许英文逗号或空格分隔
+          let arr = _.split(str, /[ ,，\n]/g);
+          //删除数组中的空元素
+          arr = _.compact(arr);
+
+          for (let i = 0; i < arr.length; i++) {
+            let curHex = _.toUpper(_.toNumber(arr[i]).toString(16));
+            if (arr.length - 1 === i) {
+              result += "0x" + curHex.padStart(2, '0');
+            } else {
+              result += "0x" + curHex.padStart(2, '0') + ", ";
+            }
+          }
 
           return result;
         },

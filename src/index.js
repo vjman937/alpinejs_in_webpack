@@ -1,5 +1,6 @@
 //引入通用工具库
 //import _ from 'lodash';
+import './js/db.js';
 
 //引入自定义界面组件
 import "./js/navbar.js";

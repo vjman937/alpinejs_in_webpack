@@ -23,6 +23,7 @@
     "cors": "^2.8.5",
     "css-loader": "^7.1.2",
     "daisyui": "^4.12.10",
+    "dexie": "^4.0.8",
     "express": "^4.19.2",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",

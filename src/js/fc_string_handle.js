@@ -198,6 +198,7 @@ document.addEventListener("alpine:init", () => {
             let arr = str.match(/[0-9a-fA-F]{2}/g);
 
             for (let i = 0; i < arr.length; i++) {
+              arr[i] = _.toUpper(arr[i]);
               if (arr.length - 1 === i) {
                 arr[i] = "0x" + arr[i];
               } else {

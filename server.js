@@ -1,12 +1,8 @@
 'use strict';
 
-//const cors = require('cors');
 const express = require('express');
 const app = express();
 const port = 3000;
-
-//允许跨域
-//app.use(cors({origin: '*'}));
 
 //创建虚拟路径前缀
 app.use('/', express.static('dist'));
@@ -18,5 +14,5 @@ app.get('/*', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Express start on port ${port}`)
 });
